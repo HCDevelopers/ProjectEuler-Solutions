@@ -1,0 +1,22 @@
+public static void ProjectEuler9()
+{
+    int ans = 0;
+    for (int a = 1; a < 1000; a++)
+    {
+        for (int b = 1; b < 1000; b++)
+        {
+            double c = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+            if (c % 1 == 0)
+            {
+                if (a + b + c == 1000)
+                {
+                    ans = a * b * (int)c;
+                    goto Ans;
+                }
+            }
+        }
+    }
+
+Ans:
+    Console.WriteLine("Answer: {0}", ans);
+}
