@@ -1,0 +1,16 @@
+public static unsafe void Problem12()
+{
+    ulong* seq = stackalloc ulong[2];
+    seq[0] = seq[1] = 1;
+    uint numFactors = 0;
+    uint divisorMax = 500;
+    while (numFactors < divisorMax)
+    {
+        numFactors = 0;
+        seq[1] += ++seq[0];
+        ulong upperBound = (ulong)Math.Sqrt(seq[1]);
+        for (ulong i = 1; i <= upperBound; i++)
+            if (seq[1] % i == 0) numFactors+=2;
+    }
+    Console.WriteLine("Ans: {0}", seq[1]);
+}
