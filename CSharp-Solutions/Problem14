@@ -1,0 +1,23 @@
+public static void Problem14()
+{
+    ulong limit = 1000000;
+    ulong highNum = 0;
+    ulong highChain = 0;
+
+    for (ulong i = 1, n = i; i < limit; n = ++i)
+    {
+        ulong chain = 1;
+        while (n > 1)
+        {
+            if (n % 2 == 0) n /= 2;
+            else n = (3 * n) + 1;
+            chain++;
+        }
+        if (chain > highChain)
+        {
+            highNum = i;
+            highChain = chain;
+        }
+    }
+    Console.WriteLine("Ans: {0}", highNum);
+}
