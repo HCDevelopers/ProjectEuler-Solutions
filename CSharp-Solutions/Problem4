@@ -1,0 +1,36 @@
+public static void ProjectEuler4()
+{
+    int high = 0;
+    for (int i = 100; i < 1000; i++)
+    {
+        for (int j = 100; j < 1000; j++)
+        {
+            if (j != i)
+            {
+                string product = (i * j).ToString();
+                if (IsPallindrome(product, 0, product.Length - 1))
+                {
+                    int result = int.Parse(product);
+                    if (result > high)
+                    {
+                        high = result;
+                    }
+                }
+            }
+        }
+    }
+    Console.WriteLine("Answer: {0}", high);
+}
+
+private static bool IsPallindrome(string s, int lowerIndex, int upperIndex)
+{
+    if (upperIndex <= lowerIndex)
+    {
+        return true;
+    }
+    if (s[lowerIndex] != s[upperIndex])
+    {
+        return false;
+    }
+    return IsPallindrome(s, ++lowerIndex, --upperIndex);
+}
