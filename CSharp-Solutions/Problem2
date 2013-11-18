@@ -1,0 +1,25 @@
+public static void ProjectEuler2()
+{
+    // Keep track of last 2 fib #'s calculated
+    int[] fib = new int[2];
+    // fib(0) and fib(1) are 1
+    // Since the first even fib # is 2, we don't care about these 1's.
+    fib[0] = fib[1] = 1;
+    
+    // Current index for the last highest calculated fib #
+    int n = 0;
+    int total = 0;
+
+    // We want the sum of all even fib #'s < 4 million
+    while (fib[n] < 4000000)
+    {
+        // Assign n to the next index
+        // Assign element to the sum of the 2 current fib #'s.
+        fib[n = (n + 1) % 2] = fib[(n + 1) % 2] + fib[n];
+
+        // If the fib # is even, add it to the sum.
+        if (fib[n] % 2 == 0)
+            total += fib[n];
+    }
+    Console.WriteLine("Answer: {0}", total);
+}
