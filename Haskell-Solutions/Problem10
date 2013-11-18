@@ -1,0 +1,8 @@
+The code is same as problem7 https://github.com/HCDevelopers/ProjectEuler-Solutions/blob/master/Haskell-Solutions/Problem7.hs
+
+Do the following :-
+
+sum $ primesToQ 2000000
+
+This calculates the sum of the primes list up to 2000000
+Result: 142913828922
