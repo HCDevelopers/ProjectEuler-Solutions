@@ -1,0 +1,11 @@
+static void ProjectEuler1()
+{
+    int total = 0;
+    // Multiples of 3 or 5 obviously do not start below 3.
+    for (int i = 3; i < 1000; i++)
+    {
+        if (i % 3 == 0 || i % 5 == 0)
+            total += i;
+    }
+    Console.WriteLine("Answer: {0}", total);
+}
