@@ -1,0 +1,20 @@
+public static void Problem22()
+{
+    string file = @"Z:\test\names.txt";
+    string[] names = File.ReadAllText(file).Split(',');
+    Array.Sort(names);
+
+    int totalScore = 0;
+    string alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for (int i = 0; i < names.Length; i++)
+    {
+        int nameScore = 0;
+        string name = names[i].Replace("\"", string.Empty);
+        foreach (char c in name)
+        {
+            nameScore += alpha.IndexOf(c) + 1;
+        }
+        totalScore += (nameScore * (i + 1));
+    }
+    Console.WriteLine("Ans: {0}", totalScore);
+}
